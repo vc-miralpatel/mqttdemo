@@ -13,13 +13,12 @@ class DemoController extends Controller
        // $mqtt = MQTT::connection();
        //$mqtt->publish('some/topic', 'Hello World!');
        // MQTT::publish('some/topic', 'Hello World!', true, 'default');
-       
-       
-       MQTT::publish('some/topic', '',false, 'public');
+
+       MQTT::publish('some/topic', 'hellooo',false, 'public');
 
        //MQTT::publish('topicname', 'message','qos-0/1/2', 'retain-true/false' , 'connection-public/private');
-       
-       
+
+
        //MQTT::publish('some/topic', 'Hello World!', true, 'public');
        // dd($k);
      //  MQTT::disconnect();
@@ -53,7 +52,7 @@ class DemoController extends Controller
         //dd($request->message);
         try {
             $message = $request->message;
-            MQTT::publish('some/topic', trim($request->message));
+            MQTT::publish('some/topic', trim($request->message), 'default');
            // MQTT::publish('some/topic', trim($request->message), false , 'public');
             MQTT::publish('vc', 'viitorcloud', false , 'public');
             MQTT::publish('vc/laravel', 'vc-laravel', false , 'public');
@@ -98,7 +97,7 @@ class DemoController extends Controller
             $result['message'] = $message;
            //$msg = $message;
         }, 0);
-        dd($result);
+       // dd($result);
         // $mqtt->loop(true,true);
         //     pcntl_signal(SIGINT, function () use ($mqtt) {
         //         $mqtt->interrupt();

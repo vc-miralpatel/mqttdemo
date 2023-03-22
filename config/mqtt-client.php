@@ -17,9 +17,9 @@ return [
     |
     */
 
-    //'default_connection' => 'default',
+    'default_connection' => 'default',
     //'default_connection' => 'private',
-    'default_connection' => 'public',
+   // 'default_connection' => 'public',
 
     /*
     |--------------------------------------------------------------------------

@@ -56,10 +56,18 @@
     // console.log(mqtt.client);
    
     //const mqtt = require('mqtt');
-     //const client = mqtt.connect('mqtt://test.mosquitto.org');
-    const client = mqtt.connect('ws://test.mosquitto.org:8081');
-    //const client = mqtt.connect('mqtt://broker.hivemq.com:8000');
-   //const client = mqtt.connect('wss://test.mosquitto.org:8081')
+     //const client = mqtt.connect('mqtt://test.mosquitto.org');//not working
+    const client = mqtt.connect('ws://test.mosquitto.org:8081');//working
+//     const options = {
+//     //clientId: 'myclient',
+//     username: 'miralpatel',
+//     password: 'Test@123##'
+//   };
+//   const client = mqtt.connect('mqtt://localhost:1883',options);
+//   console.log(client);
+
+    //const client = mqtt.connect('mqtt://broker.hivemq.com:8000');//not working
+   //const client = mqtt.connect('wss://test.mosquitto.org:8081')//not working
 //     const topic = 'some/topic';
 const topic = 'some/topic';
 //const message = 'gggggg'; 
@@ -82,7 +90,7 @@ client.on('connect', () => {
     // client.subscribe('vc/laravel/sahil/#');
     //The plus sign (+) wildcard is a single-level wildcard that matches any MQTT topic name within a specified topic level
     //client.subscribe('vc/laravel/+/miral');
-    client.subscribe('vc/laravel/shailesh/+');
+   // client.subscribe('vc/laravel/shailesh/+');
 });
 
 // receive a message from the subscribed topic

@@ -1,13 +1,20 @@
 const mqtt = require('mqtt');
-const client = mqtt.connect('mqtt://test.mosquitto.org'); 
+//const client = mqtt.connect('mqtt://test.mosquitto.org');
+//const client = mqtt.connect('localhost');
+const options = {
+    //clientId: 'myclient',
+    username: 'miralpatel',
+    password: 'Test@123##'
+  };
+const client = mqtt.connect('mqtt://localhost:1883',options);
 const topic = 'some/topic';
 //const topic = 'some/topic';
-//const message = 'test message hiii'; 
+//const message = 'test message hiii';
 
 client.on('connect', () => {
-    console.log(`Is client connected: ${client.connected}`);    
+    console.log(`Is client connected: ${client.connected}`);
     if (client.connected === true) {
-       // console.log(`message: ${message}, topic: ${topic}`); 
+       // console.log(`message: ${message}, topic: ${topic}`);
         // publish message
         //client.publish(topic, message);
     }
@@ -18,7 +25,7 @@ client.on('connect', () => {
 
 // receive a message from the subscribed topic
 client.on('message',(topic, message) => {
-    console.log(`message: ${message}, topic: ${topic}`); 
+    console.log(`message: ${message}, topic: ${topic}`);
 });
 
 // error handling- register event listeners for the “error” event
