@@ -1,12 +1,13 @@
 const mqtt = require('mqtt');
-//const client = mqtt.connect('mqtt://test.mosquitto.org');
+const client = mqtt.connect('mqtt://test.mosquitto.org');
 //const client = mqtt.connect('localhost');
-const options = {
-    //clientId: 'myclient',
-    username: 'miralpatel',
-    password: 'Test@123##'
-  };
-const client = mqtt.connect('mqtt://localhost:1883',options);
+// const options = {
+//     //clientId: 'myclient',
+//     username: 'miralpatel',
+//     password: 'Test@123##'
+//   };
+// const client = mqtt.connect('mqtt://localhost:1883',options);
+//const client = mqtt.connect('http://broker.hivemq.com:1883');
 const topic = 'some/topic';
 //const topic = 'some/topic';
 //const message = 'test message hiii';
@@ -21,6 +22,15 @@ client.on('connect', () => {
 
     // subscribe to a topic
     client.subscribe(topic);
+    //The hash (#) wildcard can match more than one topic level, but it must be used as the last level.
+    //client.subscribe('vc/laravel/#');
+    //client.subscribe('vc/bde/#');
+    // client.subscribe('vc/qa/#');
+    // client.subscribe('vc/#');
+    // client.subscribe('vc/laravel/sahil/#');
+    //The plus sign (+) wildcard is a single-level wildcard that matches any MQTT topic name within a specified topic level
+    //client.subscribe('vc/laravel/+/miral');
+   // client.subscribe('vc/laravel/shailesh/+');
 });
 
 // receive a message from the subscribed topic

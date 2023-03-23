@@ -52,8 +52,8 @@ class DemoController extends Controller
         //dd($request->message);
         try {
             $message = $request->message;
-            MQTT::publish('some/topic', trim($request->message), 'default');
-           // MQTT::publish('some/topic', trim($request->message), false , 'public');
+            //MQTT::publish('some/topic', trim($request->message), 'default');
+           MQTT::publish('some/topic', trim($request->message), false , 'public');
             MQTT::publish('vc', 'viitorcloud', false , 'public');
             MQTT::publish('vc/laravel', 'vc-laravel', false , 'public');
             MQTT::publish('vc/bde', 'vc-bde', false , 'public');
@@ -73,6 +73,7 @@ class DemoController extends Controller
 
 
             MQTT::publish('vc/bde/maulik', 'vc-AAAA', false , 'public');
+            MQTT::publish('vc/bde/niketan', 'vc-BBBB', false , 'public');
 
             return redirect('create');
         } catch(Exception $e) {

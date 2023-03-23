@@ -16,7 +16,6 @@
         <div>
             <p id="mqttMessage"></p>
         </div>
-       
     </div>
 </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -42,40 +41,26 @@
 </script> --}}
   <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script> 
 
-  {{-- <script type="text/javascript" src="{{ asset('js/mqtt.js') }}"></script> --}}
-  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.0.0/mqtt.js" integrity="sha512-icFoRswWQbg3WS2Kz0G97YWFeLmugap6CCrEPf1DpZ7c+hecv8us79bLa8tSQdNBjLU1dpT2DeLS0gkPHCFsRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
-  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.3.7/mqtt.js" integrity="sha512-yX4jaiU9Ai9dzaimFoTq+tQYOrAMNP+EWiiUVsru3ypsAi76c0zCPBfxKagLkKjC4ZeLMEQTa7aE7CtjTmlgDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
- {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.3.7/mqtt.min.js" integrity="sha512-tc5xpAPaQDl/Uxd7ZVbV66v94Lys0IefMJSdlABPuzyCv0IXmr9TkqEQvZiWKRoXMSlP5YPRwpq2a+v5q2uzMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 <script>
-    console.log("start");
-   
     // Initialize a mqtt variable globally
-    //console.log(mqtt);
-    // console.log(mqtt.);
-    // console.log(mqtt.mqtt);
-    // console.log(mqtt.client);
-   
-    //const mqtt = require('mqtt');
-     //const client = mqtt.connect('mqtt://test.mosquitto.org');//not working
-    const client = mqtt.connect('ws://test.mosquitto.org:8081');//working
-//     const options = {
-//     //clientId: 'myclient',
-//     username: 'miralpatel',
-//     password: 'Test@123##'
-//   };
-//   const client = mqtt.connect('mqtt://localhost:1883',options);
-//   console.log(client);
 
+    //const mqtt = require('mqtt');
+    //const client = mqtt.connect('mqtt://test.mosquitto.org');//not working
     //const client = mqtt.connect('mqtt://broker.hivemq.com:8000');//not working
-   //const client = mqtt.connect('wss://test.mosquitto.org:8081')//not working
-//     const topic = 'some/topic';
-const topic = 'some/topic';
-//const message = 'gggggg'; 
+    //const client = mqtt.connect('wss://test.mosquitto.org:8081')// working
+     const client = mqtt.connect('ws://test.mosquitto.org:8081');//working
+    // const options = {
+    //     username: 'miralpatel',
+    //     password: 'Test@123##'
+    // };
+    // const client = mqtt.connect('ws://127.0.0.1:1883',options);
+    // console.log(client.connect);
+    const topic = 'some/topic';
 
 client.on('connect', () => {
     console.log(`Is client connected: ${client.connected}`);    
     if (client.connected === true) {
-       // console.log(`message: ${message}, topic: ${topic}`); 
+       // console.log(`message: ${message}, topic: ${topic}`);
         // publish message
        // client.publish(topic, message);
     }
