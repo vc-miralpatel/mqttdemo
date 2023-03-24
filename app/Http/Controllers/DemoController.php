@@ -14,7 +14,7 @@ class DemoController extends Controller
        //$mqtt->publish('some/topic', 'Hello World!');
        // MQTT::publish('some/topic', 'Hello World!', true, 'default');
 
-       MQTT::publish('some/topic', 'hellooo',false, 'public');
+       //MQTT::publish('some/topic', 'hellooo',false, 'public');
 
        //MQTT::publish('topicname', 'message','qos-0/1/2', 'retain-true/false' , 'connection-public/private');
 
@@ -53,7 +53,13 @@ class DemoController extends Controller
         try {
             $message = $request->message;
             //MQTT::publish('some/topic', trim($request->message), 'default');
-           MQTT::publish('some/topic', trim($request->message), false , 'public');
+          // MQTT::publish('some/topic', trim($request->message), true , 'public');
+
+          //static method not working- Mqtt::publish(topic,msg,qos,retain,connection) but we create and object of connection and then do itthen its working
+          $mqtt = MQTT::connection();
+          $mqtt->publish('some/topic2', trim($request->message) ,0, true ,'default');
+          $mqtt->disconnect();
+          // $mqtt->loop(true);
             MQTT::publish('vc', 'viitorcloud', false , 'public');
             MQTT::publish('vc/laravel', 'vc-laravel', false , 'public');
             MQTT::publish('vc/bde', 'vc-bde', false , 'public');

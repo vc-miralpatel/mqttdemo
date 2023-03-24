@@ -120,7 +120,7 @@ return [
             'port' => 1883,
         ],
         'public' => [
-            'host' => 'broker.hivemq.com',
+            'host' => 'test.mosquitto.org',
             'port' => 1883,
         ],
 

@@ -48,14 +48,15 @@
     //const client = mqtt.connect('mqtt://test.mosquitto.org');//not working
     //const client = mqtt.connect('mqtt://broker.hivemq.com:8000');//not working
     //const client = mqtt.connect('wss://test.mosquitto.org:8081')// working
-     const client = mqtt.connect('ws://test.mosquitto.org:8081');//working
+     const client = mqtt.connect('ws://test.mosquitto.org:8081',{clean:true});//working
     // const options = {
     //     username: 'miralpatel',
     //     password: 'Test@123##'
     // };
     // const client = mqtt.connect('ws://127.0.0.1:1883',options);
     // console.log(client.connect);
-    const topic = 'some/topic';
+    //const topic = 'some/topic';
+    const topic = 'some/topic1';
 
 client.on('connect', () => {
     console.log(`Is client connected: ${client.connected}`);    
